@@ -276,6 +276,6 @@ export function getConversation(conv_template: string, conv_config?: Partial<Con
   } else if (conv_template == "custom") {
     return new Conversation(conv_config as Required<ConvTemplateConfig>);
   } else {
-    throw Error("Unknown conv template " + conv_template);
+    throw Error("(code updated) Unknown conv template " + conv_template);
   }
 }

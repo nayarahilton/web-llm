@@ -169,6 +169,19 @@ export function getConversation(conv_template: string, conv_config?: Partial<Con
       stop_tokens: [0],
       ...conv_config,
     });
+  } else if (conv_template == "codellama_instruct") {
+    return new Conversation({
+      system: "Below is an instruction that describes a task. Write a response that appropriately " +
+        "completes the request.",
+      roles: ["Instruction", "Response"],
+      offset: 0,
+      seps: ["\n\n### ", "\n\n### "],
+      separator_style: "Two",
+      stop_str: "</s>",
+      add_bos: true,
+      stop_tokens: [2],
+      ...conv_config,
+    });
   } else if (conv_template == "wizard_coder_or_math") {
     return new Conversation({
       system: "Below is an instruction that describes a task. Write a response that appropriately " +
